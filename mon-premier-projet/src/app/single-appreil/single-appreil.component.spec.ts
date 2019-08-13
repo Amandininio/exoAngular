@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MonPremierComponent } from './mon-premier.component';
+import { SingleAppreilComponent } from './single-appreil.component';
 
-describe('MonPremierComponent', () => {
-  let component: MonPremierComponent;
-  let fixture: ComponentFixture<MonPremierComponent>;
+describe('SingleAppreilComponent', () => {
+  let component: SingleAppreilComponent;
+  let fixture: ComponentFixture<SingleAppreilComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MonPremierComponent ]
+      declarations: [ SingleAppreilComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MonPremierComponent);
+    fixture = TestBed.createComponent(SingleAppreilComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

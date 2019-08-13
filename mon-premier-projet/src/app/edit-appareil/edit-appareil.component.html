@@ -1,0 +1,19 @@
+
+<div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+        <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+            <div class="form-group">
+                <label for="name">Nom de l'appareil</label>
+                <input type="text" class="form-control" id="name" name="name" ngModel required>
+            </div>
+            <div class="form-group">
+                <label for="status">Status de l'appareil</label>
+                <select class="form-control" id="status" name="status" [ngModel]="defaultOnOff" required>
+                    <option value="Allumé">Allumé</option>
+                    <option value="Eteint">Eteint</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary" [disabled]="f.invalid">Enregistrer</button>
+        </form>
+    </div>
+</div>
