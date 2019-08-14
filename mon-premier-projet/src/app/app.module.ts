@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {HttpClientModule} from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { AppareilComponent } from './appareil/appareil.component';
@@ -16,11 +17,14 @@ import { EditAppareilComponent } from './edit-appareil/edit-appareil.component';
 import { UserService } from './services/user.service';
 import { UserListComponent } from './user-list/user-list.component';
 import { NewUserComponent } from './new-user/new-user.component';
+import { from } from 'rxjs';
 
 const appRoutes: Routes = [
   { path: '', component: AppareilViewComponent},
   { path: 'appareils/:id', canActivate: [AuthGuard], component: SingleAppreilComponent},
   { path: 'auth', component: AuthComponent},
+  { path: 'users',canActivate: [AuthGuard], component: UserListComponent},
+  { path: 'new-users', component: NewUserComponent},
   { path: 'users', component: UserListComponent},
   { path: 'appareils', canActivate: [AuthGuard], component: AppareilViewComponent},
   { path: 'edit', canActivate: [AuthGuard], component: EditAppareilComponent},
@@ -44,6 +48,7 @@ const appRoutes: Routes = [
   imports: [
     FormsModule,
     BrowserModule,
+    HttpClientModule,
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes)
   ],

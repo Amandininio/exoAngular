@@ -39,6 +39,7 @@ export class AppareilViewComponent implements OnInit {
       }
     );
     this.appareilService.emitAppareilSubject();
+    // this.appareilService.getAppareilFromServer();
   }
   switchOnAll() {
     this.appareilService.switchOnAll();
@@ -49,5 +50,11 @@ export class AppareilViewComponent implements OnInit {
     } else {
       return null;
     }
+  }
+  onSave() {
+    this.appareilService.saveAppareilToServer();
+  }
+  onFetch() {
+    this.appareilService.getAppareilFromServer();
   }
 }
