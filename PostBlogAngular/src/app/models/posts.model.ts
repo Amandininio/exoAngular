@@ -1,6 +1,6 @@
 export class Post {
+    createdAt: number;
     constructor(    public title: string,
                     public content: string,
-                    public loveIts: number,
-                    public createdAt: Date) {}
+                    public loveIts: number) {}
 }

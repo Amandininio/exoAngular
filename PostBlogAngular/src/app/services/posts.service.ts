@@ -32,7 +32,7 @@ export class PostsService {
     getSinglePost(id: number) {
         return new Promise(
             (resolve, reject) => {
-                firebase.database().ref('/posts' + id).once('value').then(
+                firebase.database().ref('/posts/' + id).once('value').then(
                     (data) => {
                         resolve(data.val());
                     }, (error) => {
@@ -61,5 +61,27 @@ export class PostsService {
         this.emitPost();
         this.savePost();
     }
+
+    
+
+    getColor(post: Post) {
+        if (post.loveIts < 0) {
+          return 'tomato';
+        } else if (post.loveIts > 0) {
+          return 'lightgreen';
+        } else {
+          return 'white';
+        }
+      }
+      getColorText(post: Post) {
+         // console.log(post);
+          if (post.loveIts < 0) {
+          return 'red';
+        } else if (post.loveIts > 0) {
+          return 'green';
+        } else {
+          return 'black';
+        }
+      }
 
 }
