@@ -1,15 +1,12 @@
 <div class="row">
-    <div class="col-xs-12 list-group">
-        <h1 class="list-group-item-heading">{{post.title}}<span class="pull-right">Crée le: {{ post.createdAt | date: 'MM/dd/yyyy, hh:mm a'}}</span></h1>
-        <p class="list-group-item-text">{{post.content}}</p>
-       <!-- TODO: Add (click) function -->
-        <button class="btn btn-success" 
-                (click)="onLove()">I Love it !!</button>
-                <span>{{' '+post.love+' '}}</span>
-        <button class="btn btn-danger" 
-                (click)="onHate()">I Hate it !!</button>
-
-        <button class="btn btn-default"
-                (click)="onBack()"> Retour </button>
-    </div>
+        <div    class="col-xs-12 list-group-item"
+                [ngStyle]="{backgroundColor: getColor(), color: getColorText()}">
+                <div class="list-group-item-text pull-right"> {{ post.createdAt | date: 'MM/dd/yyyy, hh:mm a' }} </div>
+                <h2> {{post.title}} </h2>
+                <p> {{post.content}}</p>
+                <button class="btn btn-success" (click)="onAction(1)">I Love it !!</button><span> {{post.loveIts}} </span>
+                <button class="btn btn-danger" (click)="onAction((-1))">I Hate it !!</button>
+                <div    class="pull-right btn btn-default"
+                        (click)="onBack()"> Retour </div>
+        </div>
 </div>

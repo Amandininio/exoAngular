@@ -26,6 +26,9 @@ export class PostListItemsComponent implements OnInit, OnDestroy {
     this.postsService.emitPost();
   }
 
+  onAction(post: Post, value: number) {
+    this.postsService.onAction(post, value);
+  }
   getColor(post: Post) {
     return this.postsService.getColor(post);
   }

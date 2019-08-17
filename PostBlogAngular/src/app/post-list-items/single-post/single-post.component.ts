@@ -13,13 +13,13 @@ export class SinglePostComponent implements OnInit {
   date: Date = new Date();
 
   constructor(  private route: ActivatedRoute,
-                private postServise: PostsService,
+                private postsService: PostsService,
                 private router: Router) { }
 
   ngOnInit() {
     this.post = new Post ('', '', 0 );
     const id = this.route.snapshot.params['id'];
-    this.postServise.getSinglePost(+id).then(
+    this.postsService.getSinglePost(+id).then(
       (post: Post) => {
         this.post = post;
       }
@@ -28,6 +28,15 @@ export class SinglePostComponent implements OnInit {
 
   onBack() {
     this.router.navigate(['/posts']);
+  }
+  onAction( value: number) {
+    this.postsService.onAction(this.post, value);
+  }
+  getColor() {
+    return this.postsService.getColor(this.post);
+  }
+  getColorText() {
+   return this.postsService.getColorText(this.post);
   }
 
 }

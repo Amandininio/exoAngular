@@ -10,16 +10,17 @@
                     <div class="list-group-item-text"> {{ post.createdAt | date: 'MM/dd/yyyy, hh:mm a' }} </div>
 
                     <button class="btn btn-default pull-right"
-                                (click)="onDeletePost(post)">
+                                (click)="onDeletePost(post)"
+                                title="supprimer">
                                     <span class="glyphicon glyphicon-remove"></span>
                         </button>
 
-                            <h3 class="list-group-item-heading" (click)="onViewPost(i)"> {{ post.title | uppercase}}
+                            <h3 class="list-group-item-heading" (click)="onViewPost(i)" style="cursor:pointer"> {{ post.title | uppercase}}
                             </h3>
                             
                     <p class="list-group-item-text">{{ post.content }}</p>
-                    <button class="btn btn-success" (click)="onLove()">I Love it !!</button><span> {{post.loveIts}} </span>
-                    <button class="btn btn-danger" (click)="onHate()">I Hate it !!</button>
+                    <button class="btn btn-success" (click)="onAction(post, 1)">I Love it !!</button><span> {{post.loveIts}} </span>
+                    <button class="btn btn-danger" (click)="onAction(post, (-1))">I Hate it !!</button>
             </div>
         </div>
     </div>

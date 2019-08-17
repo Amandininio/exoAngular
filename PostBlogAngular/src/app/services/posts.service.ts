@@ -62,13 +62,17 @@ export class PostsService {
         this.savePost();
     }
 
-    
+    onAction(post: Post, value: number) {
+        post.loveIts += value;
+        this.emitPost();
+        this.savePost();
+    }
 
     getColor(post: Post) {
         if (post.loveIts < 0) {
-          return 'tomato';
+          return '#ffcccc';
         } else if (post.loveIts > 0) {
-          return 'lightgreen';
+          return '#99e699';
         } else {
           return 'white';
         }
@@ -76,9 +80,9 @@ export class PostsService {
       getColorText(post: Post) {
          // console.log(post);
           if (post.loveIts < 0) {
-          return 'red';
+          return '#800000';
         } else if (post.loveIts > 0) {
-          return 'green';
+          return '#1f7a1f';
         } else {
           return 'black';
         }
